@@ -5,7 +5,7 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      required: false,
+      required: true,
       unique: true,
       trim: true,
     },
@@ -20,10 +20,15 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    role: {
+      type: String,
+      default: 'User'
+    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
+    versionKey: false
   }
 );
 
