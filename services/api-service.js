@@ -11,6 +11,6 @@ class ApiService {
                 return response.json()
             })
     }
-} l
+}
 
 module.exports = ApiService
