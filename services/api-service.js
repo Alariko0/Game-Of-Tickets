@@ -1,3 +1,4 @@
+
 class ApiService {
 
     constructor() {
@@ -12,7 +13,7 @@ class ApiService {
     }
 
     getOneEvent = (eventId) => {
-
+        return this.axiosApp.get(`/events/${eventId}`).then((res) => res.data)
     }
 }
 
