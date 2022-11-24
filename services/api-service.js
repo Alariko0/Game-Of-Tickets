@@ -15,18 +15,6 @@ class ApiService {
     getOneEvent = (eventId) => {
         return this.axiosApp.get(`/events/${eventId}`).then((res) => res.data)
     }
-
-    createEvent = (eventInfo) => {
-        return this.axiosApp.post(`/events`, eventInfo)
-    }
-
-    editEvent = (eventId, eventInfo) => {
-        return this.axiosApp.put(`/events/${eventId}`, eventInfo)
-    }
-
-    deleteEvent = (eventId) => {
-        return this.axiosApp.delete(`/events/${eventId}`)
-    }
 }
 
 module.exports = ApiService
