@@ -1,9 +1,24 @@
-<h1>Eventos</h1>
+{{!-- <h1>Eventos</h1>
 
 {{#each eventData }}
 <h5>{{name}}</h5>
 
-<p>{{country}}</p>
+<p>{{locale}}</p>
 <p>{{type}}</p>
 
-{{/each}}
+{{/each}} --}}
+
+<div class="container">
+    <h2>Events</h2>
+    <div class="d-flex flex-wrap justifycontent-center">
+        {{#each eventData}}
+        <div class="card m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <h6 class="card-title">{{locale}}</h6>
+                <h6 class="card-title">{{type}}</h6>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

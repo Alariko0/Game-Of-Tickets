@@ -14,12 +14,15 @@ router.get('/main', (req, res, next) => {
 
 router.get('/main2', (req, res, next) => {
     ticketApi.getAllEvents().then((events) => {
-        res.render('auth/main2', { evenData: events._embedded.products })
+        res.render('auth/main2', { eventData: events._embedded.products })
+        console.log('segunda ruta')
     })
-    console.log('segunda ruta')
 })
 
 router.get('/main3', (req, res, next) => {
+    ticketApi.getAllEvents().then((events) => {
+        res.render('auth/main3', { eventData: events._embedded.attractions })
+    })
     console.log('tercera ruta')
 })
 
