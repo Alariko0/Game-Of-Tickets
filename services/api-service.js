@@ -11,10 +11,6 @@ class ApiService {
                 return response.json()
             })
     }
-
-    getOneEvent = (eventId) => {
-        return this.axiosApp.get(`/events/${eventId}`).then((res) => res.data)
-    }
 }
 
 module.exports = ApiService
