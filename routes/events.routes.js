@@ -7,7 +7,7 @@ const ticketApi = new ApiService()
 router.get('/main', (req, res, next) => {
     ticketApi.getAllEvents().then((events) => {
         res.render('auth/main', { eventData: events._embedded.venues })
-        console.log(events)
+        console.log('primera ruta')
     })
 
 })
