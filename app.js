@@ -23,6 +23,7 @@ const projectName = "Game Of Tickets";
 
 app.locals.appTitle = `${capitalize(projectName)}`;
 
+
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);

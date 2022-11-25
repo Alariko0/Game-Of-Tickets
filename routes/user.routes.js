@@ -1,23 +1,24 @@
-const express = require("express")
+const isLoggedIn = require('../middleware/isLoggedIn-isLoggedOut.js')
+const express = require('express')
 const router = express.Router()
-const axios = require("axios")
-//axios necesario?
-const ApiService = require('../services/api-service');
-const ticketApi = new ApiService()
-// ----GET----
-router.get('/api-service', (req, res, next) => {
-    ticketApi
-        .getAllEvents
-        .then()
-        .catch()
-    console.log('hola mundo')
+
+router.get('/', (req, res) => {
+    res.render('user/index', req.session.user)
 })
-// events info
-router.get("/events/:id", (req, res, next) => {
-    const { id: events_id } = req.params
-    ticketApi
-        .getAllEvents(events_id)
-        .then(events => res.render('events/main', { events }))
-        .catch(err => console.log(err))
+
+router.get('/logout', (req, res) => {
+    req.session.destroy(err => {
+        if (err) next(err);
+        res.redirect('/');
+    });
 })
+
+router.get('/main', (req, res) => {
+    res.render('user/main')
+})
+
+router.get('/private', (req, res) => {
+    res.render('user/private')
+})
+
 module.exports = router

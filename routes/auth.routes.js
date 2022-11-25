@@ -13,7 +13,7 @@ const User = require("../models/User.model");
 
 // Require necessary (isLoggedOut and isLoggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
-const isLoggedIn = require("../middleware/isLoggedIn");
+const isLoggedIn = require("../middleware/isLoggedIn-isLoggedOut");
 
 // GET /auth/signup
 router.get("/signup", isLoggedOut, (req, res) => {
@@ -41,6 +41,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
 
     return;
   }
+
 
   //   ! This regular expression checks password for special characters and minimum length
 
@@ -84,6 +85,11 @@ router.post("/signup", isLoggedOut, (req, res) => {
 router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login");
 });
+
+router.get('/user', (req, res) => {
+  const user = req.session.user
+  res.render('user/index', user)
+})
 
 // POST /auth/login
 router.post("/login", isLoggedOut, (req, res, next) => {

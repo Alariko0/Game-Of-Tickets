@@ -6,22 +6,22 @@ const ticketApi = new ApiService()
 
 router.get('/main', (req, res, next) => {
     ticketApi.getAllEvents().then((events) => {
-        res.render('auth/main', { eventData: events._embedded.venues })
+        res.render('user/main', { eventData: events._embedded.venues })
         console.log('primera ruta')
     })
 
 })
 
 router.get('/main2', (req, res, next) => {
-    ticketApi.getAllEvents().then((events) => {
-        res.render('auth/main2', { eventData: events._embedded.products })
+    ticketApi.getId().then((venues) => {
+        res.render('user/main2', { venue: venues._embedded.venues })
         console.log('segunda ruta')
     })
 })
 
 router.get('/main3', (req, res, next) => {
     ticketApi.getAllEvents().then((events) => {
-        res.render('auth/main3', { eventData: events._embedded.attractions })
+        res.render('user/main3', { eventData: events._embedded.attractions })
     })
     console.log('tercera ruta')
 })

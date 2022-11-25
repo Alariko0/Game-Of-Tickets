@@ -1,0 +1,23 @@
+<!--<h1>Products</h1>
+
+{{#each venue }}
+<h5>{{name}}</h5>
+<p>{{locale}}</p>
+<p>{{id}}</p>
+
+{{/each}} -->
+
+<div class="container">
+    <h2>Products</h2>
+    <div class="d-flex flex-wrap justifycontent-center">
+        {{#each venue}}
+        <div class="card m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <h6 class="card-title">{{locale}}</h6>
+                <h7 class="card-title">{{id}}</h7>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

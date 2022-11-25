@@ -13,7 +13,7 @@ class ApiService {
     }
 
     getId = () => {
-        fetch('https://app.ticketmaster.com/discovery/v2/attractions.json?apikey=GHIICd92WtEyOeF3wAVOc5OgPwPQd2kt')
+        return fetch('https://app.ticketmaster.com/discovery/v2/venues.json?apikey=GHIICd92WtEyOeF3wAVOc5OgPwPQd2kt')
             .then((response) => {
                 return response.json()
             })
