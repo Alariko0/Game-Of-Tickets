@@ -14,10 +14,11 @@
         {{#each eventData}}
         <div class="card m-2" style="width: 18rem;">
             <div class="card-body">
+
                 <h5 class="card-title">{{name}}</h5>
-                <h6 class="card-title">{{locale}}</h6>
-                <h7 class="card-title">{{url}}</h7>
-                <h8 class="card-title">{{id}}</h8>
+
+                <a href="{{url}}" class="card-title">{{url}}</a>
+                {{!-- <h6 class="card-title">{{id}}</h6> --}}
 
 
             </div>

@@ -26,4 +26,12 @@ router.get('/main3', (req, res, next) => {
     console.log('tercera ruta')
 })
 
+router.get('/main3', (req, res, next) => {
+    ticketApi.getAllEvents().then((city) => {
+        res.render('user/main3', { cityData: city._embedded.venues.city })
+    })
+    console.log('cuarta ruta')
+})
+
+
 module.exports = router

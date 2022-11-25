@@ -20,7 +20,7 @@ require("./config")(app);
 
 const capitalize = require("./utils/capitalize");
 const projectName = "Game Of Tickets";
-
+const { isLoggedIn, isLoggedOut } = require('./middleware/isLoggedIn-isLoggedOut')
 app.locals.appTitle = `${capitalize(projectName)}`;
 
 
@@ -29,12 +29,13 @@ const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
 
 const authRoutes = require("./routes/auth.routes");
-app.use("/auth", authRoutes);
+app.use("/auth", isLoggedOut, authRoutes);
 
 const userRoutes = require("./routes/user.routes")
-app.use("/user", userRoutes)
+app.use("/user", isLoggedIn, userRoutes)
 
-const eventsRoutes = require("./routes/events.routes")
+const eventsRoutes = require("./routes/events.routes");
+//const { isLoggedOut } = require("./middleware/isLoggedIn-isLoggedOut");
 app.use("/events", eventsRoutes)
 
 
